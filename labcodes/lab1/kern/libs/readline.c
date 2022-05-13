@@ -1,10 +1,18 @@
 #include <stdio.h>
 
-#define BUFSIZE    1024
+#define BUFSIZE    1024 // 缓冲区大小
 static char buf[BUFSIZE];
 
+/**
+ * 该文件主要包含一个方法 char *readline(const char *prompt)
+ * 该方法的作用：
+ *  如果*prompt不为空，则返回 *prompt的值
+ *  否则就返回从stdin中读取的一行内容（如果一行内容长于BUFSIZE 1024,则返回1024长度的字符串
+ * 
+ */
+
 /* *
- * readline - get a line from stdin
+ * readline - get a line from stdin 
  * @prompt:        the string to be written to stdout
  *
  * The readline() function will write the input string @prompt to

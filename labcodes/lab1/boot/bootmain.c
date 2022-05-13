@@ -3,31 +3,31 @@
 #include <elf.h>
 
 /* *********************************************************************
- * This a dirt simple boot loader, whose sole job is to boot
+ * This a dirt simple boot loader, whose sole job is to boot 这是一个非常简单的启动加载程序，它唯一的工作就是启动
  * an ELF kernel image from the first IDE hard disk.
  *
- * DISK LAYOUT
- *  * This program(bootasm.S and bootmain.c) is the bootloader.
- *    It should be stored in the first sector of the disk.
+ * DISK LAYOUT  磁盘层级
+ *  * This program(bootasm.S and bootmain.c) is the bootloader.    这个程序（bootasm.S 和bootmain.c）是启动加载程序
+ *    It should be stored in the first sector of the disk.    他应该被存储在磁盘的第一个扇区
  *
- *  * The 2nd sector onward holds the kernel image.
+ *  * The 2nd sector onward holds the kernel image.    第二个扇区应该保存内核镜像
  *
- *  * The kernel image must be in ELF format.
+ *  * The kernel image must be in ELF format.  内核镜像应该是ELF格式的
  *
- * BOOT UP STEPS
- *  * when the CPU boots it loads the BIOS into memory and executes it
+ * BOOT UP STEPS 启动步骤
+ *  * when the CPU boots it loads the BIOS into memory and executes it     当cpu开始把 BIOS加载进内存并且执行是
  *
- *  * the BIOS intializes devices, sets of the interrupt routines, and
+ *  * the BIOS intializes devices, sets of the interrupt routines, and    BIOS 初始化(硬件)设备，中断程序集，并且BIOS读取启动设备在第一个扇区进内存并跳转过去
  *    reads the first sector of the boot device(e.g., hard-drive)
  *    into memory and jumps to it.
  *
- *  * Assuming this boot loader is stored in the first sector of the
+ *  * Assuming this boot loader is stored in the first sector of the    假设启动加载程序被存储在第一个扇区，这时启动加载程序的代码开始接管cpu
  *    hard-drive, this code takes over...
  *
- *  * control starts in bootasm.S -- which sets up protected mode,
+ *  * control starts in bootasm.S -- which sets up protected mode,    控制启动在bootams.S中，它设置成了保护模式和一个栈所以c语言代码可以运行，然后调用bootmain()
  *    and a stack so C code then run, then calls bootmain()
  *
- *  * bootmain() in this file takes over, reads in the kernel and jumps to it.
+ *  * bootmain() in this file takes over, reads in the kernel and jumps to it.   这个文件的bootmain()开始接管 读取系统内核并且跳转
  * */
 
 #define SECTSIZE        512

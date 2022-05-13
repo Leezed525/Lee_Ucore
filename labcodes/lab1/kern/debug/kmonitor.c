@@ -5,6 +5,7 @@
 #include <kdebug.h>
 
 /* *
+ * 简单的命令行内核监视器
  * Simple command-line kernel monitor useful for controlling the
  * kernel and exploring the system interactively.
  * */

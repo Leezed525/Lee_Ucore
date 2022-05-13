@@ -27,13 +27,13 @@ kern_init(void) {
 
     grade_backtrace();
 
-    pmm_init();                 // init physical memory management
+    pmm_init();                 // init physical memory management 初始化内存管理
 
-    pic_init();                 // init interrupt controller
-    idt_init();                 // init interrupt descriptor table
+    pic_init();                 // init interrupt controller 初始化中断控制
+    idt_init();                 // init interrupt descriptor table  初始化中断描述符表
 
-    clock_init();               // init clock interrupt
-    intr_enable();              // enable irq interrupt
+    clock_init();               // init clock interrupt 初始化时钟中断
+    intr_enable();              // enable irq interrupt 
 
     //LAB1: CAHLLENGE 1 If you try to do it, uncomment lab1_switch_test()
     // user/kernel mode switch test

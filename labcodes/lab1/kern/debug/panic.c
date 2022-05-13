@@ -5,6 +5,10 @@
 
 static bool is_panic = 0;
 
+/**
+ * 该方法在产生一个为被解决的致命错误时被调用
+ * 
+ */
 /* *
  * __panic - __panic is called on unresolvable fatal errors. it prints
  * "panic: 'message'", and then enters the kernel monitor.

@@ -201,7 +201,7 @@ all: $(TARGETS)
 lab1-mon: $(UCOREIMG)
 	$(V)$(TERMINAL) -e "$(QEMU) -S -s -d in_asm -D $(BINDIR)/q.log -monitor stdio -hda $< -serial null"
 	$(V)sleep 2
-	$(V)$(TERMINAL) -e "gdb -q -x tools/lab1init"
+	$(V)$(TERMINAL) -e "cgdb -q -x tools/lab1init"
 debug-mon: $(UCOREIMG)
 #	$(V)$(QEMU) -S -s -monitor stdio -hda $< -serial null &
 	$(V)$(TERMINAL) -e "$(QEMU) -S -s -monitor stdio -hda $< -serial null"
@@ -220,7 +220,7 @@ gdb: $(UCOREIMG)
 debug: $(UCOREIMG)
 	$(V)$(QEMU) -S -s -parallel stdio -hda $< -serial null &
 	$(V)sleep 2
-	$(V)$(TERMINAL)  -e "cgdb -q -x tools/gdbinit"
+	$(V)$(TERMINAL) -e "cgdb -q -ex nocolor -x tools/gdbinit "
 	
 debug-nox: $(UCOREIMG)
 	$(V)$(QEMU) -S -s -serial mon:stdio -hda $< -nographic &

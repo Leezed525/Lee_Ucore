@@ -23,6 +23,7 @@ struct eipdebuginfo {
 };
 
 /* *
+ * 二分查找（查找地址）
  * stab_binsearch - according to the input, the initial value of
  * range [*@region_left, *@region_right], find a single stab entry
  * that includes the address @addr and matches the type @type,
@@ -210,6 +211,7 @@ debuginfo_eip(uintptr_t addr, struct eipdebuginfo *info) {
 }
 
 /* *
+ * 打印kernel 信息
  * print_kerninfo - print the information about kernel, including the location
  * of kernel entry, the start addresses of data and text segements, the start
  * address of free memory and how many memory that kernel has used.
@@ -226,6 +228,7 @@ print_kerninfo(void) {
 }
 
 /* *
+ * 打印调试信息
  * print_debuginfo - read and print the stat information for the address @eip,
  * and info.eip_fn_addr should be the first address of the related function.
  * */
